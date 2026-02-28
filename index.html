@@ -16,9 +16,13 @@
 
 <header>
 
-Pithoriya Manjhidih Official
+<h1>Pithoriya Manjhidih Official</h1>
 
-<p>Digital Village Portal</p>
+<p>Official Digital Village Portal</p>
+
+<p id="date"></p>
+
+<p>Visitors: <span id="counter">0</span></p>
 
 </header>
 
@@ -26,29 +30,125 @@ Pithoriya Manjhidih Official
 
 <nav>
 
-<a href="#notice">Notice</a>
+<a href="#home">Home</a>
 
-<a href="#hisab">Hisab</a>
+<a href="#baha">Baha Porob</a>
+
+<a href="#sohrai">Sohrai</a>
+
+<a href="#committee">Committee</a>
 
 <a href="#meeting">Meeting</a>
 
-<a href="#address">Address</a>
+<a href="#hisab">Accounts</a>
+
+<a href="#announce">Announcement</a>
+
+<a href="#map">Map</a>
 
 </nav>
 
 
 
-<section id="notice">
+<section id="home">
 
-<h2>Village Notice Board</h2>
+<h2>Welcome</h2>
 
-<ul id="noticeList">
+Official Website of Pithoriya Manjhidih.
 
-<li>Baha Porob Meeting 5 PM</li>
+Gaon ki meeting aur tyohar ki jankari yahan milegi.
+
+</section>
+
+
+
+<section id="baha">
+
+<h2>Baha Porob Details</h2>
+
+Baha Porob gaon ka mukhya tyohar hai.
+
+<br><br>
+
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" width="300">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" width="300">
+
+</section>
+
+
+
+<section id="sohrai">
+
+<h2>Sohrai Details</h2>
+
+Sohrai kheti aur pashu se juda tyohar hai.
+
+<br><br>
+
+<img src="https://images.unsplash.com/photo-1472145246862-b24cf25c4a36" width="300">
+
+<img src="https://images.unsplash.com/photo-1500595046743-ddf4d3d753fd" width="300">
+
+</section>
+
+
+
+<section id="committee">
+
+<h2>Manjhi Committee</h2>
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Post</th>
+
+</tr>
+
+<tr>
+
+<td>Manjhi Baba</td>
+
+<td>Village Head</td>
+
+</tr>
+
+<tr>
+
+<td>Jog Manjhi</td>
+
+<td>Assistant</td>
+
+</tr>
+
+<tr>
+
+<td>Naike Baba</td>
+
+<td>Pujari</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+
+<section id="meeting">
+
+<h2>Meeting Notice</h2>
+
+<ul>
+
+<li>Baha Meeting 5 PM</li>
+
+<li>Village Meeting Sunday</li>
 
 </ul>
-
-<button onclick="addNotice()">Add Notice</button>
 
 </section>
 
@@ -56,8 +156,7 @@ Pithoriya Manjhidih Official
 
 <section id="hisab">
 
-<h2>Festival Hisab Kharch</h2>
-
+<h2>Festival Accounts</h2>
 
 <table id="hisabTable">
 
@@ -69,7 +168,6 @@ Pithoriya Manjhidih Official
 <th>Expense</th>
 
 </tr>
-
 
 <tr>
 
@@ -83,71 +181,44 @@ Pithoriya Manjhidih Official
 </table>
 
 
-<button onclick="addHisab()">Add Hisab</button>
-
-
 <h3>Total Income ₹ <span id="totalIncome">0</span></h3>
 
 <h3>Total Expense ₹ <span id="totalExpense">0</span></h3>
 
 <h3>Balance ₹ <span id="balance">0</span></h3>
 
+</section>
+
+
+
+<section id="announce">
+
+<h2>Announcement</h2>
+
+<div class="box">
+
+Baha Porob Meeting 5 PM  
+Sabhi Gramvasi Upasthit Ho
+
+</div>
 
 </section>
 
 
 
-<section id="meeting">
+<section id="map">
 
-<h2>Meeting Record</h2>
+<h2>Village Location</h2>
 
-<table id="meetingTable">
+<iframe
 
-<tr>
+src="https://maps.google.com/maps?q=Petarwar&t=&z=13&ie=UTF8&iwloc=&output=embed"
 
-<th>Date</th>
-<th>Meeting</th>
-<th>Place</th>
+width="100%"
 
-</tr>
+height="300">
 
-<tr>
-
-<td>2026</td>
-<td>Baha Meeting</td>
-<td>Manjhidih</td>
-
-</tr>
-
-</table>
-
-<button onclick="addMeeting()">Add Meeting</button>
-
-</section>
-
-
-
-<section id="address">
-
-<h2>Village Address</h2>
-
-Village : Pithoriya Manjhidih
-
-<br>
-
-Post : Champi
-
-<br>
-
-PS : Petarwar
-
-<br>
-
-District : Bokaro
-
-<br>
-
-Pincode : 829123
+</iframe>
 
 </section>
 
@@ -164,85 +235,33 @@ Pincode : 829123
 <script>
 
 
+// Auto Date
 
-function addNotice(){
-
-let text=prompt("Notice likho");
-
-let li=document.createElement("li");
-
-li.innerHTML=text;
-
-document.getElementById("noticeList").appendChild(li);
-
-}
+document.getElementById("date").innerHTML=new Date().toDateString();
 
 
 
-function addHisab(){
+// Visitor Counter
 
-let date=prompt("Date");
+let count=localStorage.getItem("visitCount");
 
-let fest=prompt("Festival");
+if(count==null){
 
-let income=prompt("Income");
+count=1;
 
-let expense=prompt("Expense");
+}else{
 
-
-let row=document.createElement("tr");
-
-
-row.innerHTML=`
-
-<td>${date}</td>
-
-<td>${fest}</td>
-
-<td class="income">${income}</td>
-
-<td class="expense">${expense}</td>
-
-`;
-
-document.getElementById("hisabTable").appendChild(row);
-
-calculate();
+count++;
 
 }
 
+localStorage.setItem("visitCount",count);
 
-
-function addMeeting(){
-
-let date=prompt("Date");
-
-let meeting=prompt("Meeting");
-
-let place=prompt("Place");
-
-
-let row=document.createElement("tr");
-
-
-row.innerHTML=`
-
-<td>${date}</td>
-
-<td>${meeting}</td>
-
-<td>${place}</td>
-
-`;
-
-document.getElementById("meetingTable").appendChild(row);
-
-}
+document.getElementById("counter").innerHTML=count;
 
 
 
-function calculate(){
-
+// Hisab Total
 
 let income=document.querySelectorAll(".income");
 
@@ -273,10 +292,6 @@ document.getElementById("totalExpense").innerHTML=totalExpense;
 
 document.getElementById("balance").innerHTML=totalIncome-totalExpense;
 
-}
-
-
-calculate();
 
 
 </script>
@@ -285,4 +300,4 @@ calculate();
 
 </body>
 
-  </html>
+</html>
