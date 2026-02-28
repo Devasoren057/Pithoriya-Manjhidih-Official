@@ -1,54 +1,66 @@
-body{
+/* ===== RESET ===== */
 
-font-family: Arial;
-
+*{
 margin:0;
-
-background:#f2f2f2;
-
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
+
+/* ===== BODY ===== */
+
+body{
+background:#f4f6f9;
+color:#222;
+}
+
+
+/* ===== HEADER ===== */
 
 header{
 
-background:green;
-
+background:#00695c;
 color:white;
-
 text-align:center;
-
-padding:25px;
-
-font-size:28px;
-
-font-weight:bold;
+padding:20px;
 
 }
 
+header h1{
+
+font-size:26px;
+
+}
+
+header p{
+
+font-size:14px;
+margin-top:5px;
+
+}
+
+
+
+/* ===== NAVIGATION MENU ===== */
 
 nav{
 
-background:black;
-
+background:#004d40;
+padding:10px;
 text-align:center;
 
-padding:12px;
-
 }
-
 
 nav a{
 
 color:white;
-
-margin:15px;
-
 text-decoration:none;
-
-font-size:18px;
+margin:10px;
+font-size:15px;
+font-weight:bold;
 
 }
-
 
 nav a:hover{
 
@@ -57,86 +69,206 @@ color:yellow;
 }
 
 
-section{
 
-background:white;
+/* ===== CONTAINER ===== */
 
-margin:20px;
+.container{
 
 padding:20px;
 
+}
+
+
+
+/* ===== CARD SYSTEM ===== */
+
+.card{
+
+background:white;
+padding:20px;
+margin-bottom:20px;
 border-radius:10px;
+box-shadow:0px 3px 10px rgba(0,0,0,0.1);
 
-box-shadow:0px 0px 10px gray;
+}
+
+.card h2{
+
+margin-bottom:10px;
+color:#00695c;
 
 }
 
 
-h2{
 
-color:green;
+/* ===== BUTTON ===== */
+
+button{
+
+background:#00695c;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
 
 }
 
+button:hover{
+
+background:#004d40;
+
+}
+
+
+
+/* ===== INPUT ===== */
+
+input,textarea{
+
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+border:1px solid gray;
+
+}
+
+
+
+/* ===== TABLE ===== */
 
 table{
 
 width:100%;
-
 border-collapse:collapse;
+margin-top:10px;
 
 }
 
+table th{
 
-table,th,td{
-
-border:1px solid black;
-
+background:#00695c;
+color:white;
 padding:10px;
 
+}
+
+table td{
+
+border:1px solid #ddd;
+padding:10px;
 text-align:center;
 
 }
 
 
-button{
 
-background:green;
+/* ===== AUTO HISAB TOTAL ===== */
 
-color:white;
+.totalBox{
 
-border:none;
-
-padding:10px 20px;
-
+background:#e0f2f1;
+padding:15px;
 margin-top:10px;
-
-font-size:16px;
-
-cursor:pointer;
-
-border-radius:5px;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+text-align:center;
 
 }
 
 
-button:hover{
 
-background:darkgreen;
+/* ===== ANNOUNCEMENT BOX ===== */
+
+.noticeBox{
+
+background:#fff3cd;
+padding:15px;
+border-radius:8px;
+border-left:6px solid orange;
 
 }
 
+
+
+/* ===== MEETING BOX ===== */
+
+.meetingBox{
+
+background:#e3f2fd;
+padding:15px;
+border-radius:8px;
+border-left:6px solid blue;
+
+}
+
+
+
+/* ===== FESTIVAL BOX ===== */
+
+.festivalBox{
+
+background:#f1f8e9;
+padding:15px;
+border-radius:8px;
+border-left:6px solid green;
+
+}
+
+
+
+/* ===== FOOTER ===== */
 
 footer{
 
-background:black;
-
+background:#004d40;
 color:white;
-
 text-align:center;
-
-padding:15px;
-
-margin-top:20px;
+padding:10px;
+margin-top:30px;
 
 }
+
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media(max-width:600px){
+
+nav a{
+
+display:block;
+margin:5px 0;
+
+}
+
+header h1{
+
+font-size:20px;
+
+}
+
+}
+
+
+/* ===== SPECIAL EFFECT ===== */
+
+.card:hover{
+
+transform:scale(1.01);
+transition:0.3s;
+
+}
+
+
+
+/* ===== SCROLL SMOOTH ===== */
+
+html{
+
+scroll-behavior:smooth;
+
+  }
