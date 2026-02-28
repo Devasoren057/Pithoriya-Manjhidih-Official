@@ -11,84 +11,6 @@
 
 </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pithoriya Manjhidih Official</title>
-
-<style>
-
-body{
-font-family: Arial;
-margin:0;
-background:#f2f2f2;
-}
-
-header{
-background:green;
-color:white;
-text-align:center;
-padding:25px;
-font-size:26px;
-font-weight:bold;
-}
-
-nav{
-background:black;
-padding:10px;
-text-align:center;
-}
-
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
-
-nav a:hover{
-color:yellow;
-}
-
-.hero{
-background:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
-background-size:cover;
-color:white;
-text-align:center;
-padding:80px 20px;
-font-size:22px;
-}
-
-section{
-background:white;
-margin:20px;
-padding:20px;
-border-radius:10px;
-}
-
-h2{
-color:green;
-}
-
-.gallery img{
-width:100%;
-max-width:300px;
-margin:10px;
-border-radius:10px;
-}
-
-footer{
-background:black;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:20px;
-}
-
-</style>
-
-</head>
-
-
 <body>
 
 
@@ -96,112 +18,136 @@ margin-top:20px;
 
 Pithoriya Manjhidih Official
 
+<p>Digital Village Portal</p>
+
 </header>
+
 
 
 <nav>
 
-<a href="#">Home</a>
+<a href="#notice">Notice</a>
 
-<a href="#">Village</a>
+<a href="#hisab">Hisab</a>
 
-<a href="#">Manjhi Baba</a>
+<a href="#meeting">Meeting</a>
 
-<a href="#">Festival</a>
-
-<a href="#">Gallery</a>
-
-<a href="#">Contact</a>
+<a href="#address">Address</a>
 
 </nav>
 
 
 
-<div class="hero">
+<section id="notice">
 
-<h1>Welcome to Pithoriya Manjhidih</h1>
+<h2>Village Notice Board</h2>
 
-<p>Official Village Website</p>
+<ul id="noticeList">
 
-</div>
+<li>Baha Porob Meeting 5 PM</li>
 
+</ul>
 
-
-<section>
-
-<h2>About Village</h2>
-
-<p>
-
-Pithoriya Manjhidih is a traditional tribal village known for its culture, festivals and unity of villagers.
-
-</p>
+<button onclick="addNotice()">Add Notice</button>
 
 </section>
 
 
 
-<section>
+<section id="hisab">
 
-<h2>Manjhi Baba</h2>
+<h2>Festival Hisab Kharch</h2>
 
-<p>
 
-Manjhi Baba plays an important role in village administration and traditional decision making.
+<table id="hisabTable">
 
-</p>
+<tr>
+
+<th>Date</th>
+<th>Festival</th>
+<th>Income</th>
+<th>Expense</th>
+
+</tr>
+
+
+<tr>
+
+<td>2026</td>
+<td>Baha Porob</td>
+<td class="income">5000</td>
+<td class="expense">3000</td>
+
+</tr>
+
+</table>
+
+
+<button onclick="addHisab()">Add Hisab</button>
+
+
+<h3>Total Income ₹ <span id="totalIncome">0</span></h3>
+
+<h3>Total Expense ₹ <span id="totalExpense">0</span></h3>
+
+<h3>Balance ₹ <span id="balance">0</span></h3>
+
 
 </section>
 
 
 
-<section>
+<section id="meeting">
 
-<h2>Festivals</h2>
+<h2>Meeting Record</h2>
 
-<p>
+<table id="meetingTable">
 
-Major festivals celebrated in the village include Baha Porob, Sohrai, and other traditional tribal festivals.
+<tr>
 
-</p>
+<th>Date</th>
+<th>Meeting</th>
+<th>Place</th>
+
+</tr>
+
+<tr>
+
+<td>2026</td>
+<td>Baha Meeting</td>
+<td>Manjhidih</td>
+
+</tr>
+
+</table>
+
+<button onclick="addMeeting()">Add Meeting</button>
 
 </section>
 
 
 
-<section class="gallery">
+<section id="address">
 
-<h2>Village Gallery</h2>
-
-<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
-
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
-</section>
-
-
-
-<section>
-
-<h2>Contact</h2>
-
-<p>
+<h2>Village Address</h2>
 
 Village : Pithoriya Manjhidih
 
-Post : Champi 
-  
-Police Station: Petarwar 
-  
-District : Bokaro 
-  
+<br>
+
+Post : Champi
+
+<br>
+
+PS : Petarwar
+
+<br>
+
+District : Bokaro
+
+<br>
+
 Pincode : 829123
-
-State : Jharkhand
-
-</p>
 
 </section>
 
@@ -214,6 +160,129 @@ State : Jharkhand
 </footer>
 
 
+
+<script>
+
+
+
+function addNotice(){
+
+let text=prompt("Notice likho");
+
+let li=document.createElement("li");
+
+li.innerHTML=text;
+
+document.getElementById("noticeList").appendChild(li);
+
+}
+
+
+
+function addHisab(){
+
+let date=prompt("Date");
+
+let fest=prompt("Festival");
+
+let income=prompt("Income");
+
+let expense=prompt("Expense");
+
+
+let row=document.createElement("tr");
+
+
+row.innerHTML=`
+
+<td>${date}</td>
+
+<td>${fest}</td>
+
+<td class="income">${income}</td>
+
+<td class="expense">${expense}</td>
+
+`;
+
+document.getElementById("hisabTable").appendChild(row);
+
+calculate();
+
+}
+
+
+
+function addMeeting(){
+
+let date=prompt("Date");
+
+let meeting=prompt("Meeting");
+
+let place=prompt("Place");
+
+
+let row=document.createElement("tr");
+
+
+row.innerHTML=`
+
+<td>${date}</td>
+
+<td>${meeting}</td>
+
+<td>${place}</td>
+
+`;
+
+document.getElementById("meetingTable").appendChild(row);
+
+}
+
+
+
+function calculate(){
+
+
+let income=document.querySelectorAll(".income");
+
+let expense=document.querySelectorAll(".expense");
+
+let totalIncome=0;
+
+let totalExpense=0;
+
+
+income.forEach(function(i){
+
+totalIncome+=Number(i.innerHTML);
+
+});
+
+
+expense.forEach(function(e){
+
+totalExpense+=Number(e.innerHTML);
+
+});
+
+
+document.getElementById("totalIncome").innerHTML=totalIncome;
+
+document.getElementById("totalExpense").innerHTML=totalExpense;
+
+document.getElementById("balance").innerHTML=totalIncome-totalExpense;
+
+}
+
+
+calculate();
+
+
+</script>
+
+
+
 </body>
 
-</html>
+  </html>
